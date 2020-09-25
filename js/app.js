@@ -22,9 +22,13 @@ window.addEventListener("DOMContentLoaded", function (evt) {
 
   const navbarList = document.getElementById("navbar__list");
   console.log(navbarList.innerHTML); //hello
-  const sections = document.getElementsByTagName("section"); //Check length/existence of section tags
+  const sections = document.querySelectorAll("section"); //Check length/existence of section tags
   for (var i = 0; i < sections.length; i++) {
     console.log("Sections => ", sections[i]);
+    console.log(
+      "Sections getBoundingRect() => ",
+      sections[i].getBoundingClientRect()
+    );
   }
   const navItems = document.getElementsByClassName("menu__link");
   const topButton = document.getElementById("button");
@@ -56,8 +60,42 @@ window.addEventListener("DOMContentLoaded", function (evt) {
     navbarList.innerHTML = liElements;
   };
   createNavLinks();
+
+  // Add class 'active' to section when near top of viewport
+
+  function addActiveClassWhenInViewport() {
+    for (let i = 0; i < sections.length; i++) {
+      console.log(sections[i]);
+      let positionSection = sections[i].getBoundingClientRect();
+      console.log(
+        "Top Position ",
+        positionSection.top,
+        "Bottom Position",
+        positionSection.bottom,
+        "Left Position",
+        positionSection.left,
+        "Right Position",
+        positionSection.right
+      );
+      if (
+        positionSection.top >= 0 &&
+        positionSection.left >= 0 &&
+        positionSection.right <=
+          (window.innerWidth || document.documentElement.clientWidth) &&
+        positionSection.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight)
+      ) {
+        console.log("In Viewport");
+      } else {
+        console.log("Not in viewport");
+      }
+    }
+  }
+  document.addEventListener("scroll", () => {
+    addActiveClassWhenInViewport();
+  });
 });
-// Add class 'active' to section when near top of viewport
+// addActiveClass();
 
 // Scroll to anchor ID using scrollTO event
 
