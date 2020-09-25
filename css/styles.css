@@ -9,20 +9,24 @@ body {
 /* Typeography General*/
 h1 {
   font-family: "Fira Sans", sans-serif;
-  font-size: 3em;
-  margin: 2em 1rem;
+  font-size: 55px;
+  color: #fff;
+  text-emphasis: filled double-circle red;
+  -webkit-text-emphasis: filled double-circle red;
 }
 
 h2 {
-  border-bottom: 1px solid #cc1;
   font-family: "Oxygen", Sans-Serif;
-  font-size: 3em;
+  font-size: 30px;
   color: #fff;
 }
 
 p {
-  line-height: 1.6em;
-  color: #eee;
+  line-height: 1.3;
+  color: #000;
+  font-size: 22px;
+  margin: 5px;
+  font-family: "Permanent Marker", cursive;
 }
 
 main {
@@ -31,6 +35,9 @@ main {
 
 .main-hero {
   min-height: 40vh;
+}
+.landing__container {
+  margin: 10px;
 }
 
 section {
@@ -106,8 +113,10 @@ section {
 }
 
 .your-active-class {
-  background: rgb(219, 160, 10);
-  color: rgb(228, 27, 167);
+  background: slategray;
+  opacity: 0.79;
+  border-radius: 15px;
+  transform: skewX(9deg);
 }
 
 #button {
