@@ -1,9 +1,9 @@
 body {
-  background: rgb(136, 203, 171);
-  background: linear-gradient-rgb(10, 30, 200);
+  background-image: url("../images/swirls.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   font-family: "Merriweather", serif;
-  color: #fff;
 }
 
 /* Typeography General*/
@@ -25,7 +25,6 @@ p {
   color: #eee;
 }
 
-/* ---- Layout Rules ---- */
 main {
   margin: 13vh;
 }
@@ -39,9 +38,6 @@ section {
   min-height: 90vh;
 }
 
-/* ---- Module Rules ---- */
-
-/* Navigation Styles*/
 .navbar__menu ul {
   padding-left: 0;
   margin: 0;
@@ -89,7 +85,6 @@ section {
   background: rgba(51, 51, 51, 0.205);
 }
 
-/* Header Styles */
 .page__header {
   background: #fff;
   position: fixed;
@@ -98,7 +93,6 @@ section {
   z-index: 5;
 }
 
-/* Footer Styles */
 .page__footer {
   background: dodgerblue;
   height: 75px;
