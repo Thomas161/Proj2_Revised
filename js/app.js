@@ -55,7 +55,7 @@ window.addEventListener("DOMContentLoaded", function (evt) {
       // for (var i = 0; i < sections.length; i++) {
       console.log(sec.dataset);
       //   console.log(sec.dataset.nav);
-      liElements += `<li><a class="menu_link ${sec.id}" href="#section${sec.id}" >${sec.dataset.nav}</a></li>`;
+      liElements += `<li><a class="menu_link ${sec.id}" href="#${sec.id}" >${sec.dataset.nav}</a></li>`;
     });
     navbarList.innerHTML = liElements;
   };
@@ -106,18 +106,21 @@ window.addEventListener("DOMContentLoaded", function (evt) {
     addActiveClassWhenInViewport();
   });
 
-  //   let aHref = document.getElementsByTagName("a");
+  let a = document.getElementsByTagName("a"); //undefined
+  console.log("a href tags", a[0].href);
   //   for (let a in aHref)
-  document.querySelector("a[href='#id']").forEach((aTag) => {
-    aTag.addEventListener("click", (event) => {
+  for (let i = 0; i < a.length; i++) {
+    a[i].href.addEventListener("click", (event) => {
       event.preventDefault();
 
       //   const aHref = document.getElementsByTagName("a").href;
-      document.querySelector(aTag).scrollIntoView({
+      //   let scrollId = document.querySelector(aHref[i]);
+
+      a[i].href.scrollIntoView({
         behavior: "smooth",
       });
     });
-  });
+  }
 
   //call function below when window is scrolled
   //   window.onscroll = function () {
