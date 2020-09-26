@@ -24,14 +24,14 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   console.log(navbarList.innerHTML); //hello
   const sections = document.querySelectorAll("section"); //Check length/existence of section tags
   for (var i = 0; i < sections.length; i++) {
-    console.log("Sections => ", sections[i]);
+    console.log("Sections => ", sections[i].id); //id of each individual section tag
     console.log(
       "Sections getBoundingRect() => ",
       sections[i].getBoundingClientRect()
     );
   }
-  const navItems = document.getElementsByClassName("menu__link");
-  const topButton = document.getElementById("button");
+  //   const navItems = document.getElementsByClassName("menu__link");
+  const topButton = document.getElementsByClassName("button");
 
   /**
    * End Global Variables
@@ -85,51 +85,63 @@ window.addEventListener("DOMContentLoaded", function (evt) {
         positionSection.bottom <=
           (window.innerHeight || document.documentElement.clientHeight)
       ) {
-        let id = document
-          .querySelector(this.getAttribute("id"))
-          .classList.add("active");
+        let id = sections[i].getAttribute("id");
+        console.log(id);
+
+        document.querySelector(`${id}`).classList.add("active");
         sections[i].classList.add("your-active-class");
         console.log("In Viewport");
       } else {
-        document
-          .querySelector(this.getAttribute("id"))
-          .classList.remove("active");
+        let id = sections[i].getAttribute("id");
+        console.log(id);
+        document.querySelector(`${id}`).classList.remove("active");
         sections[i].classList.remove("your-active-class");
         console.log("Not in viewport");
       }
     }
   }
+
+  //   console.log(sections[i]);
   document.addEventListener("scroll", () => {
     addActiveClassWhenInViewport();
   });
 
-  document.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", (event) => {
+  //   let aHref = document.getElementsByTagName("a");
+  //   for (let a in aHref)
+  document.querySelector("a[href='#id']").forEach((aTag) => {
+    aTag.addEventListener("click", (event) => {
       event.preventDefault();
 
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
+      //   const aHref = document.getElementsByTagName("a").href;
+      document.querySelector(aTag).scrollIntoView({
         behavior: "smooth",
       });
     });
   });
-});
 
-window.onscroll = function () {
-  scrollFunction();
-};
+  //call function below when window is scrolled
+  //   window.onscroll = function () {
+  //     scrollButtonIntoView();
+  //   };
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    topButton.style.display = "inline-block";
-  } else {
-    topButton.style.display = "none";
-  }
-}
+  //hide button until you have scrolled beyond 20px of top doc
+  //   function scrollButtonIntoView() {
+  //     if (
+  //       document.body.scrollTop > 20 ||
+  //       document.documentElement.scrollTop > 20
+  //     ) {
+  //       topButton.style.display = "block";
+  //     } else {
+  //       topButton.style.display = "none";
+  //     }
+  //   }
 
-topButton.addEventListener("click", function (e) {
-  e.preventDefault();
+  //click button, scrolls to top of html doc
+  //   topButton.addEventListener("click", function (e) {
+  //     e.preventDefault();
 
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  //     window.scrollTo({ top: 0, behavior: "smooth" });
+  //   });
 });
 /**
  * End Main Functions
