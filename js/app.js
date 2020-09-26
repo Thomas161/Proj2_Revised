@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", function (evt) {
    */
 
   // build the nav
-  //var where we are going to write the html
+
   const createNavLinks = () => {
     let liElements = "";
 
@@ -55,7 +55,7 @@ window.addEventListener("DOMContentLoaded", function (evt) {
       // for (var i = 0; i < sections.length; i++) {
       console.log(sec.dataset);
       //   console.log(sec.dataset.nav);
-      liElements += `<li><a class="menu_link" href="#section${sec.id}" >${sec.dataset.nav}</a></li>`;
+      liElements += `<li><a class="menu_link ${sec.id}" href="#section${sec.id}" >${sec.dataset.nav}</a></li>`;
     });
     navbarList.innerHTML = liElements;
   };
@@ -85,8 +85,16 @@ window.addEventListener("DOMContentLoaded", function (evt) {
         positionSection.bottom <=
           (window.innerHeight || document.documentElement.clientHeight)
       ) {
+        let id = document
+          .querySelector(this.getAttribute("id"))
+          .classList.add("active");
+        sections[i].classList.add("your-active-class");
         console.log("In Viewport");
       } else {
+        document
+          .querySelector(this.getAttribute("id"))
+          .classList.remove("active");
+        sections[i].classList.remove("your-active-class");
         console.log("Not in viewport");
       }
     }
@@ -94,11 +102,35 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   document.addEventListener("scroll", () => {
     addActiveClassWhenInViewport();
   });
+
+  document.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
 });
-// addActiveClass();
 
-// Scroll to anchor ID using scrollTO event
+window.onscroll = function () {
+  scrollFunction();
+};
 
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    topButton.style.display = "inline-block";
+  } else {
+    topButton.style.display = "none";
+  }
+}
+
+topButton.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 /**
  * End Main Functions
  * Begin Events
