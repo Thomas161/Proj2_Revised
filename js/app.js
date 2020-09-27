@@ -51,19 +51,19 @@ window.addEventListener("DOMContentLoaded", function (evt) {
     [...sections].forEach((sec) => {
       let liElements = document.createElement("li");
       // for (var i = 0; i < sections.length; i++) {
-      //   console.log(sec.dataset);
-      liElements.className.add = "menu__link";
-      liElements.dataset.nav = sec.id;
-      liElements.id = "nav-" + sec.id;
-      liElements.innerText = sec.dataset.nav;
-      console.log(sec.dataset.nav);
-
+      let cl, ids, inner;
+      cl = liElements.className.add = "menu__link";
+      console.log(cl); //menu__link
+      ids = liElements.id = "nav-" + sec.id;
+      console.log(ids); //nav-section1-4
+      // inner = ;
+      console.log((liElements.innerText = sec.dataset.nav)); //section 1-4
+      navbarList.appendChild(liElements);
       liElements.addEventListener("click", function () {
         console.log("clicked");
         sec.scrollIntoView({
           behavior: "smooth",
         });
-        navbarList.appendChild(liElements);
       });
     });
   };
@@ -78,34 +78,30 @@ window.addEventListener("DOMContentLoaded", function (evt) {
         console.log(sections[i]);
         let sectionById = document.getElementById(`section${i}`);
         // let itemId = document.getElementById(`nav-section${i}`);
-        let positionSection = sections[i].getBoundingClientRect();
+        // let positionSection = sections[i].getBoundingClientRect();
 
-        console.log(
-          "Top Position ",
-          positionSection.top,
-          "Bottom Position",
-          positionSection.bottom,
-          "Left Position",
-          positionSection.left,
-          "Right Position",
-          positionSection.right
-        );
+        // console.log(
+        //   "Top Position ",
+        //   sectionById.getBoundingClientRect().top,
+        //   "Bottom Position",
+        //   sectionById.getBoundingClientRect().bottom,
+        //   "Left Position",
+        //   sectionById.getBoundingClientRect().left,
+        //   "Right Position",
+        //   sectionById.getBoundingClientRect().right
+        // );
 
         if (
-          positionSection.top >= 0 &&
-          positionSection.left >= 0 &&
-          positionSection.bottom <=
-            (window.innerHeight || document.documentElement.clientHeight) &&
-          positionSection.right <=
-            (window.innerWidth || document.documentElement.clientWidth)
+          sectionById.getBoundingClientRect().top <= 150 &&
+          sectionById.getBoundingClientRect().bottom >= 150
         ) {
           console.log("In viewport");
           // itemId.classList.add("your-active-class");
           sectionById.classList.add("your-active-class");
         } else {
           // itemId.classList.remove("your-active-class");
-          sectionById.classList.add("your-active-class");
           console.log("Not in viewport");
+          sectionById.classList.remove("your-active-class");
         }
       }
     });
