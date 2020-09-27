@@ -20,7 +20,7 @@
 window.addEventListener("DOMContentLoaded", function (evt) {
   console.log("Event fired", evt);
 
-  const navbarList = document.getElementById("navbar__list");
+  const navbarList = document.querySelector("#navbar__list");
   console.log(navbarList.innerHTML); //hello
   const sections = document.querySelectorAll("section"); //Check length/existence of section tags
   for (var i = 0; i < sections.length; i++) {
@@ -30,6 +30,8 @@ window.addEventListener("DOMContentLoaded", function (evt) {
     //   sections[i].getBoundingClientRect()
     // );
   }
+
+  const topButton = document.getElementById("button");
 
   /**
    * End Global Variables
@@ -46,13 +48,13 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   // build the nav
 
   const createNavLinks = () => {
-    // Automatically building links for all the sections on the page
     [...sections].forEach((sec) => {
       let liElements = document.createElement("li");
       // for (var i = 0; i < sections.length; i++) {
       //   console.log(sec.dataset);
       liElements.className.add = "menu__link";
       liElements.dataset.nav = sec.id;
+      liElements.id = "nav-" + sec.id;
       liElements.innerText = sec.dataset.nav;
       console.log(sec.dataset.nav);
 
@@ -71,10 +73,13 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   function addActiveClassWhenInViewport() {
     window.addEventListener("scroll", (event) => {
       console.log("Type of event fired when scrolled", event.type);
-  
-    for (let i = 0; i < sections.length; i++) {
-      console.log(sections[i]);
-      let positionSection = sections[i].getBoundingClientRect();
+
+      for (let i = 1; i < sections.length; i++) {
+        console.log(sections[i]);
+        let sectionById = document.getElementById(`section${i}`);
+        // let itemId = document.getElementById(`nav-section${i}`);
+        let positionSection = sections[i].getBoundingClientRect();
+
         console.log(
           "Top Position ",
           positionSection.top,
@@ -83,65 +88,32 @@ window.addEventListener("DOMContentLoaded", function (evt) {
           "Left Position",
           positionSection.left,
           "Right Position",
-          positionSection.right,
+          positionSection.right
         );
 
-      if (positionSection.top <= 150 && positionSection.bottom >= 150) {
-        let identity = sections[i].getAttribute("id");
-        console.log("What is this ", identity); //8 id's in html doc
-
-        document.querySelector(`.${identity}`).classList.add("active");
-        sections[identity].classList.add("your-active-class");
-        console.log("In Viewport");
-      } else {
-        let identity = sections[i].getAttribute("id");
-        console.log(identity); //8 id's in html doc
-        document.querySelector(`.${identity}`).classList.remove("active");
-        sections[identity].classList.remove("your-active-class");
-
-        console.log("Not in viewport");
+        if (
+          positionSection.top >= 0 &&
+          positionSection.left >= 0 &&
+          positionSection.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          positionSection.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        ) {
+          console.log("In viewport");
+          // itemId.classList.add("your-active-class");
+          sectionById.classList.add("your-active-class");
+        } else {
+          // itemId.classList.remove("your-active-class");
+          sectionById.classList.add("your-active-class");
+          console.log("Not in viewport");
+        }
       }
-    }
+    });
   }
 
   document.addEventListener("scroll", () => {
     addActiveClassWhenInViewport();
   });
-
-  const abc = document.querySelector("a").href;
-  console.log(abc); //3
-  // Scroll to section on link click
-  for (let i = 0; i < abc.length; i++) {
-    console.log(abc[i]);
-    // let aRefs = document.querySelectorAll("a");
-    console.log(abc[i].href); //3
-    abc[i].href.addEventListener("click", (event) => {
-      event.preventDefault();
-
-      abc.scrollIntoView({
-        behavior: "smooth",
-      });
-    });
-  }
-
-  const topButton = document.getElementById("button");
-
-  //call function below when window is scrolled
-  window.onscroll = function () {
-    scrollButtonIntoView();
-  };
-
-  //hide button until you have scrolled beyond 20px of top doc
-  function scrollButtonIntoView() {
-    if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
-    ) {
-      topButton.style.display = "block";
-    } else {
-      topButton.style.display = "none";
-    }
-  }
 
   //click button, scrolls to top of html doc
   topButton.onclick = function (e) {
@@ -151,7 +123,10 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   };
 
   createNavLinks();
+
+  addActiveClassWhenInViewport();
 });
+
 /**
  * End Main Functions
  * Begin Events

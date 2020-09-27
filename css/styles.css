@@ -120,18 +120,11 @@ section {
 }
 
 #button {
-  display: none;
-  z-index: 99;
-  width: 50px;
+  width: 100px;
   height: 50px;
   text-align: center;
-  padding-top: 15px;
-  border-radius: 4px;
-  position: fixed;
-  bottom: 30px;
-  right: 15px;
-}
-
-#button:hover {
-  background: rgba(51, 51, 51, 0.205);
+  margin: auto;
+  position: relative;
+  color: #333;
+  background: tomato;
 }
