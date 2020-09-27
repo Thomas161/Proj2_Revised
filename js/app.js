@@ -46,30 +46,45 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   // build the nav
 
   const createNavLinks = () => {
-    let liElements = "";
-
     // Automatically building links for all the sections on the page
     [...sections].forEach((sec) => {
+      let liElements = document.createElement("li");
       // for (var i = 0; i < sections.length; i++) {
       //   console.log(sec.dataset);
+      liElements.className.add = "menu__link";
+      liElements.dataset.nav = sec.id;
+      liElements.innerText = sec.dataset.nav;
       console.log(sec.dataset.nav);
-      liElements += `<li><a class="menu_link ${sec.id}" href="#${sec.id}" >${sec.dataset.nav}</a></li>`;
+
+      liElements.addEventListener("click", function () {
+        console.log("clicked");
+        sec.scrollIntoView({
+          behavior: "smooth",
+        });
+        navbarList.appendChild(liElements);
+      });
     });
-    navbarList.innerHTML = liElements;
   };
-  createNavLinks();
 
   // Add class 'active' to section when near top of viewport
 
   function addActiveClassWhenInViewport() {
+    window.addEventListener("scroll", (event) => {
+      console.log("Type of event fired when scrolled", event.type);
+  
     for (let i = 0; i < sections.length; i++) {
       console.log(sections[i]);
       let positionSection = sections[i].getBoundingClientRect();
-      //   console.log(
-      //     "Top Position ",
-      //     positionSection.top,
-      //     "Bottom Position",
-      //     positionSection.bottom,
+        console.log(
+          "Top Position ",
+          positionSection.top,
+          "Bottom Position",
+          positionSection.bottom,
+          "Left Position",
+          positionSection.left,
+          "Right Position",
+          positionSection.right,
+        );
 
       if (positionSection.top <= 150 && positionSection.bottom >= 150) {
         let identity = sections[i].getAttribute("id");
@@ -134,6 +149,8 @@ window.addEventListener("DOMContentLoaded", function (evt) {
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  createNavLinks();
 });
 /**
  * End Main Functions
