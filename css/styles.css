@@ -6,7 +6,6 @@ body {
   font-family: "Merriweather", serif;
 }
 
-/* Typeography General*/
 h1 {
   font-family: "Fira Sans", sans-serif;
   font-size: 55px;
@@ -23,7 +22,7 @@ h2 {
 
 p {
   line-height: 1.3;
-  color: #000;
+  color: #fff;
   font-size: 22px;
   margin: 5px;
   font-family: "Permanent Marker", cursive;
@@ -52,15 +51,9 @@ section {
   background: chocolate;
   position: fixed;
   width: 100%;
-  height: 70px;
+  height: 50px;
 }
 
-/* .navbar__list {
-  width: 200px;
-  height: 70px;
-  background: rgb(48, 204, 48);
-  position: relative;
-} */
 .navbar__menu li {
   display: inline-block;
   margin: 5px;
@@ -80,16 +73,6 @@ section {
   font-weight: bold;
   text-decoration: none;
 }
-
-/* .navbar__menu .menu__link:hover {
-  background: #333;
-  color: #fff;
-  transition: ease 0.3s all;
-} */
-
-/* .navbar__menu .menu__link.active {
-  background: rgba(51, 51, 51, 0.205);
-} */
 
 .page__header {
   background: #fff;
