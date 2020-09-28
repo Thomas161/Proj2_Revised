@@ -23,6 +23,7 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   const navbarList = document.querySelector("#navbar__list");
   console.log(navbarList.innerHTML); //hello
   const sections = document.querySelectorAll("section"); //Check length/existence of section tags
+  console.log(sections.length);
   for (var i = 0; i < sections.length; i++) {
     // console.log("Sections => ", sections[i].id); //id of each individual section tag
     // console.log(
@@ -74,34 +75,26 @@ window.addEventListener("DOMContentLoaded", function (evt) {
     window.addEventListener("scroll", (event) => {
       console.log("Type of event fired when scrolled", event.type);
 
-      for (let i = 1; i < sections.length; i++) {
-        console.log(sections[i]);
-        let sectionById = document.getElementById(`section${i}`);
+      for (let i = 0; i < sections.length; i++) {
+        // console.log(sections[i]);
+        // let sectionById = document.getElementById(i);
+        console.log(sections[i].getBoundingClientRect());
+        let top = sections[i].getBoundingClientRect().top;
+        let bottom = sections[i].getBoundingClientRect().bottom;
         // let itemId = document.getElementById(`nav-section${i}`);
-        // let positionSection = sections[i].getBoundingClientRect();
-
-        // console.log(
-        //   "Top Position ",
-        //   sectionById.getBoundingClientRect().top,
-        //   "Bottom Position",
-        //   sectionById.getBoundingClientRect().bottom,
-        //   "Left Position",
-        //   sectionById.getBoundingClientRect().left,
-        //   "Right Position",
-        //   sectionById.getBoundingClientRect().right
-        // );
 
         if (
-          sectionById.getBoundingClientRect().top <= 150 &&
-          sectionById.getBoundingClientRect().bottom >= 150
+          // console.log(sectionById) //null
+          top <= 150 &&
+          bottom >= 110
         ) {
           console.log("In viewport");
           // itemId.classList.add("your-active-class");
-          sectionById.classList.add("your-active-class");
+          sections[i].classList.add("your-active-class");
         } else {
           // itemId.classList.remove("your-active-class");
           console.log("Not in viewport");
-          sectionById.classList.remove("your-active-class");
+          sections[i].classList.remove("your-active-class");
         }
       }
     });
@@ -128,7 +121,3 @@ window.addEventListener("DOMContentLoaded", function (evt) {
  * Begin Events
  *
  */
-
-// Build menu
-
-// Set sections as active

@@ -54,24 +54,18 @@ section {
   background: chocolate;
   position: fixed;
   width: 100%;
-  height: 80px;
+  height: 70px;
 }
 .navbar__menu li {
   display: inline-block;
-  margin: 5px;
+  margin: 20px;
   background: deepskyblue;
-  height: 60px;
+  height: 100%;
   position: relative;
-  border-radius: 15px;
-}
-.navbar__menu li a {
-  text-decoration: none;
-  text-align: center;
-  top: 18px;
-  position: relative;
-  font-size: 12px;
-  margin: 7px;
+  border-radius: 5px;
   font-family: "Dancing Script", cursive;
+  font-size: 18px;
+  color: #fff;
 }
 
 .navbar__menu .menu__link {
@@ -79,7 +73,6 @@ section {
   padding: 1em;
   font-weight: bold;
   text-decoration: none;
-  color: #fff;
 }
 
 .navbar__menu .menu__link:hover {
