@@ -76,17 +76,14 @@ window.addEventListener("DOMContentLoaded", function (evt) {
       console.log("Type of event fired when scrolled", event.type);
 
       for (let i = 0; i < sections.length; i++) {
-        // console.log(sections[i]);
-        // let sectionById = document.getElementById(i);
         console.log(sections[i].getBoundingClientRect());
         let top = sections[i].getBoundingClientRect().top;
         let bottom = sections[i].getBoundingClientRect().bottom;
-        // let itemId = document.getElementById(`nav-section${i}`);
 
         if (
           // console.log(sectionById) //null
           top <= 150 &&
-          bottom >= 110
+          bottom >= 150
         ) {
           console.log("In viewport");
           // itemId.classList.add("your-active-class");
