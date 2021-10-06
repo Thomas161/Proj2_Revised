@@ -1,64 +1,36 @@
-/**
- *
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- *
- * Dependencies: None
- *
- * JS Version: ES2015/ES6
- *
- * JS Standard: ESlint
- *
- */
-
-/**
- * Define Global Variables
- *
- */
 window.addEventListener("DOMContentLoaded", function (evt) {
-  console.log("Event fired", evt);
-
   const navbarList = document.querySelector("#navbar__list");
-  console.log(navbarList.innerHTML); //hello
-  const sections = document.querySelectorAll("section"); //Check length/existence of section tags
-  console.log(sections.length);
-  const topButton = document.getElementById("button");
-  // for (var i = 0; i < sections.length; i++) {
-  // console.log("Sections => ", sections[i].id); //id of each individual section tag
-  // console.log(
-  //   "Sections getBoundingRect() => ",
-  //   sections[i].getBoundingClientRect()
-  // );
-  // }
+  const sections = document.querySelectorAll("section");
+  const intro = document.querySelector("#intro");
+  const skills = document.querySelector("#skills");
+  let t1 = gsap.timeline();
+  console.log(t1);
 
-  /**
-   * End Global Variables
-   * Start Helper Functions
-   *
-   */
+  let playAnimation = () => {
+    t1.fromTo(
+      intro,
+      1,
+      { x: -100, opacity: 0 },
+      { x: 0, delay: 1, opacity: 1, ease: "bounce.out" }
+    );
 
-  /**
-   * End Helper Functions
-   * Begin Main Functions
-   *
-   */
+    t1.play();
+  };
+  playAnimation();
 
-  // build the nav
+  let skillsAnimation = () => {
+    t1.fromTo(skills, 0.5, { y: -200, opacity: 0 }, { y: 0, opacity: 1 });
+  };
+  skillsAnimation();
 
   const createNavLinks = () => {
     [...sections].forEach((sec) => {
       let liElements = document.createElement("li");
       let cl, ids;
       cl = liElements.className.add = "menu__link";
-      console.log(cl); //menu__link
       ids = liElements.id = "nav-" + sec.id;
-      console.log(ids); //nav-section1-4
-      console.log((liElements.innerText = sec.dataset.nav)); //section 1-4
       navbarList.appendChild(liElements);
-      liElements.addEventListener("click", function () {
-        console.log("clicked");
+      liElements.addEventListener("click", () => {
         sec.scrollIntoView({
           behavior: "smooth",
         });
@@ -70,8 +42,6 @@ window.addEventListener("DOMContentLoaded", function (evt) {
 
   function addActiveClassWhenInViewport() {
     window.addEventListener("scroll", (event) => {
-      console.log("Type of event fired when scrolled", event.type);
-
       for (let i = 0; i < sections.length; i++) {
         console.log(sections[i].getBoundingClientRect());
         let top = sections[i].getBoundingClientRect().top;
@@ -93,20 +63,7 @@ window.addEventListener("DOMContentLoaded", function (evt) {
     addActiveClassWhenInViewport();
   });
 
-  //click button, scrolls to top of html doc
-  topButton.onclick = function (e) {
-    e.preventDefault();
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   createNavLinks();
 
   addActiveClassWhenInViewport();
 });
-
-/**
- * End Main Functions
- * Begin Events
- *
- */

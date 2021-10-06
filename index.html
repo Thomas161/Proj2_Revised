@@ -4,12 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Landing Page</title>
-    <!-- Load Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap"
-      rel="stylesheet"
-    />
+    <title>CV</title>
+    <link rel="shortcut icon" href="./images/homer.png" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap"
       rel="stylesheet"
@@ -22,76 +18,89 @@
       href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
     <!-- Load Styles -->
     <link href="css/styles.css" rel="stylesheet" />
     <script src="js/app.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/gsap.min.js"></script>
+    <script src="lib/iconify.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/fontawesome.min.js"></script>
   </head>
   <body>
-    <!-- HTML Follows BEM naming conventions 
-  IDs are only used for sections to connect menu achors to sections -->
     <header class="page__header">
       <nav class="navbar__menu">
-        <!-- Navigation starts as empty UL that will be populated with JS -->
         <ul id="navbar__list"></ul>
       </nav>
     </header>
     <main>
-      <header class="main__hero">
-        <h1>Landing Page</h1>
-      </header>
-      <!-- Each Section has an ID (used for the anchor) and 
-    a data attribute that will populate the li node.
-    Adding more sections will automatically populate nav.
-    The first section is set to active class by default -->
-      <section id="section1" data-nav="Section 1" class="your-active-class">
+      <section id="section1" data-nav="Home" class="your-active-class">
         <div class="landing__container">
-          <h2>Section 1</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            fermentum metus faucibus lectus pharetra dapibus. Suspendisse
-            potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
-            lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed
-            convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla
-            eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam
-            nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis
-            lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a
-            tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus
-            vitae elit. Integer nec libero venenatis libero ultricies molestie
-            semper in tellus. Sed congue et odio sed euismod. Aliquam a
-            convallis justo. Vivamus venenatis, erat eget pulvinar gravida,
-            ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu
-            tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum
-            consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget
-            elementum tortor mollis non.
+          <h1>Thomas Christopher Magin</h1>
+          <img id="tommy" src="./images/picture.jpeg" alt="" />
+          <p id="intro">
+            Enthusiastic, analytical and driven individual, that possesses
+            strong front-end programming skills, with prior successes in sales
+            and customer service industry.
           </p>
         </div>
       </section>
-      <section id="section2" data-nav="Section 2">
+      <section id="section2" data-nav="Skills">
         <div class="landing__container">
-          <h2>Section 2</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            fermentum metus faucibus lectus pharetra dapibus. Suspendisse
-            potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
-            lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed
-            convallis sollicitudin mauris ac tincidunt. Aliquam a convallis
-            justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus
-            aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu,
-            vitae rhoncus purus. Vestibulum fermentum consectetur porttitor.
-            Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis
-            non.Donec bibendum, nulla eget bibendum consectetur, sem nisi
-            aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus
-            imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis,
-            aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc,
-            pharetra et elementum non, faucibus vitae elit. Integer nec libero
-            venenatis libero ultricies molestie semper in tellus. Sed congue et
-            odio sed euismod.
-          </p>
+          <div class="split">
+            <div id="skills">
+              <h2 id="talent">Skills</h2>
+              <span class="iconify" data-icon="logos:html-5"></span>
+              <span class="iconify" data-icon="logos:css-3"></span>
+              <span class="iconify" data-icon="logos:javascript"></span>
+              <span class="iconify" data-icon="logos:nodejs"></span>
+              <span class="iconify" data-icon="logos:npm"></span>
+              <span class="iconify" data-icon="logos:git-icon"></span>
+              <span class="iconify" data-icon="logos:linux-tux"></span>
+              <span class="iconify" data-icon="logos:terminal"></span>
+              <span class="iconify" data-icon="logos:microsoft"></span>
+              <span class="iconify" data-icon="logos:intellij-idea"></span>
+              <span class="iconify" data-icon="logos:react"></span>
+              <span class="iconify" data-icon="logos:google-cloud"></span>
+              <span class="iconify" data-icon="logos:heroku"></span>
+              <span class="iconify" data-icon="logos:travis-ci"></span>
+              <span class="iconify" data-icon="logos:jest"></span>
+              <span class="iconify" data-icon="logos:mocha"></span>
+              <span class="iconify"
+                ><i
+                  style="color: #000; position: relative; top: -15px"
+                  class="glyphicon glyphicon-earphone"
+                ></i
+              ></span>
+              <span class="iconify"
+                ><i
+                  style="color: #000; position: relative; top: -15px"
+                  style="color: #000"
+                  class="glyphicon glyphicon-user"
+                ></i
+              ></span>
+            </div>
+            <div id="employers">
+              <div id="eduList">
+                <h2 id="edu">Education</h2>
+                <h4>Bachelor of Sports Management</h4>
+                <p>University of Canberra - 2013</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      <section id="section3" data-nav="Section 3">
+      <section id="section3" data-nav="Employers">
         <div class="landing__container">
-          <h2>Section 3</h2>
+          <h2>Employers</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
             fermentum metus faucibus lectus pharetra dapibus. Suspendisse
@@ -107,26 +116,6 @@
           </p>
         </div>
       </section>
-      <section id="section4" data-nav="Section 4">
-        <div class="landing__container">
-          <h2>Section 4</h2>
-          <p>
-            Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar
-            gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam.
-            Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum
-            consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget
-            elementum tortor mollis non. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Officiis repellat similique, culpa consequuntur,
-            laudantium alias iure laborum nobis dicta porro sint reprehenderit
-            ad unde! Dolore nam repellendus minus dolorum ratione? Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Vero, maxime rerum.
-            Eligendi minus, atque quibusdam cumque temporibus enim facilis quae.
-          </p>
-        </div>
-      </section>
     </main>
-    <footer class="page__footer">
-      <p>&copy Udacity <button id="button">TOP</button></p>
-    </footer>
   </body>
 </html>
