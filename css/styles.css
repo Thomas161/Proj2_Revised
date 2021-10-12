@@ -99,7 +99,7 @@ main {
 
 section {
   position: relative;
-  width: 80%;
+  width: 90%;
   min-height: 90vh;
   background-image: url("../images/rocket.jpg");
   background-clip: content-box;
@@ -157,42 +157,63 @@ section {
   border-radius: 15px;
 }
 
-#button {
-  width: 100px;
-  height: 26px;
+#employerHeader {
+  position: relative;
   text-align: center;
-  color: #fff;
-  background: tomato;
+  color: #eee;
 }
 
-.wrapper div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.wrapper {
+  position: absolute;
+  top: 8%;
+  left: 25%;
   font-weight: bold;
   font-family: "Arimo", sans-serif;
-  height: 100vh;
-  width: 100%;
+  height: 100%;
+  width: 49%;
 }
-.wrapper div h2 {
+.wrapper h2 {
+  text-align: center;
   color: rgb(27, 27, 27);
   background: #eee;
   padding: 8px 24px;
   border-radius: 16px;
 }
-.wrapper div:nth-child(1) {
-  background-image: url("../images/desk.jpg");
-  background-size: cover;
-  background-attachment: fixed;
+.wrapper h2:hover {
+  background-color: seagreen;
+  color: #fff;
 }
-.wrapper div:nth-child(2) {
-  background-color: rgb(175, 155, 46);
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-.wrapper div:nth-child(3) {
-  background-image: url("../images/code.jpg");
-  background-attachment: fixed;
-  background-size: cover;
+
+label {
+  display: block;
+  cursor: pointer;
+  padding: 10px;
 }
-.wrapper div:nth-child(4) {
-  background-color: rgb(175, 155, 46);
+
+ul ul li {
+  padding: 10px;
+  background: #59abe3;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type="checkbox"] ~ ul {
+  height: 0;
+  transform: scaleY(0);
+}
+
+input[type="checkbox"]:checked ~ ul {
+  height: 100%;
+  transform-origin: top;
+  transition: transform 0.2s ease-out;
+  transform: scaleY(1);
 }

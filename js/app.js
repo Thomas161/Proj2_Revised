@@ -4,6 +4,7 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   const intro = document.querySelector("#intro");
   const skills = document.querySelector("#skills");
   const parallax = document.querySelector(".wrapper");
+
   let t1 = gsap.timeline();
   console.log(t1);
 
