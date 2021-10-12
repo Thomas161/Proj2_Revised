@@ -4,32 +4,30 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   const intro = document.querySelector("#intro");
   const skills = document.querySelector("#skills");
 
-  let t1 = gsap.timeline();
-  console.log(t1);
+  const t1 = gsap.timeline({ repeat: -1 });
+  const t2 = gsap.timeline();
 
-  let playAnimation = () => {
-    t1.fromTo(
-      intro,
-      1,
-      { x: -100, opacity: 0 },
-      { x: 0, delay: 1, opacity: 1, ease: "bounce.out" }
-    );
-
-    t1.play();
+  const playAnimation = () => {
+    t1.fromTo(intro, 3, { x: -40 }, { x: 0, ease: "bounce.out" });
+    t1.fromTo(intro, 3, { x: 0 }, { x: -40, ease: "bounce.out" }, "+=1");
   };
+
   playAnimation();
 
-  let skillsAnimation = () => {
-    t1.fromTo(skills, 0.5, { y: -30, opacity: 0 }, { y: 0, opacity: 1 });
+  const skillsAnimation = () => {
+    t2.fromTo(skills, 1.5, { scaleY: 0 }, { scaleY: 1 });
   };
+
   skillsAnimation();
 
   const createNavLinks = () => {
     [...sections].forEach((sec) => {
+      console.log(sec);
       let liElements = document.createElement("li");
       let cl, ids;
       cl = liElements.className.add = "menu__link";
       ids = liElements.id = "nav-" + sec.id;
+      liElements.textContent = sec.dataset.nav;
       navbarList.appendChild(liElements);
       liElements.addEventListener("click", () => {
         sec.scrollIntoView({
