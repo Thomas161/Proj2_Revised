@@ -3,7 +3,6 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   const sections = document.querySelectorAll("section");
   const intro = document.querySelector("#intro");
   const skills = document.querySelector("#skills");
-  const parallax = document.querySelector(".wrapper");
 
   let t1 = gsap.timeline();
   console.log(t1);
@@ -39,14 +38,6 @@ window.addEventListener("DOMContentLoaded", function (evt) {
       });
     });
   };
-
-  window.addEventListener("scroll", () => {
-    let offset = window.scrollY;
-    // console.log("offset", offset);
-    // console.log("offset * 0.7", offset * 0.7);
-    parallax.style.backgroundPositionY = offset * 0.7 + "px";
-  });
-  // Add class 'active' to section when near top of viewport
 
   const addActiveClassWhenInViewport = () => {
     window.addEventListener("scroll", (event) => {
