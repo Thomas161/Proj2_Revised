@@ -22,7 +22,6 @@ window.addEventListener("DOMContentLoaded", function (evt) {
 
   const createNavLinks = () => {
     [...sections].forEach((sec) => {
-      console.log(sec);
       let liElements = document.createElement("li");
       let cl, ids;
       cl = liElements.className.add = "menu__link";
