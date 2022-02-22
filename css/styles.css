@@ -1,28 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Titillium+Web:wght@200&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Arimo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: #f7347a;
+  background-color: #dfdfe5;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
 }
 .navbar__menu {
-  background: white;
   position: fixed;
-  width: 7%;
-  height: 40%;
-  right: 0;
-  top: 0;
+  width: 10%;
+  height: 100%;
+  right: 5%;
+  top: 2%;
 }
 
 .navbar__menu li {
-  display: block;
+  display: flex;
   background: rgb(180, 162, 58);
-  height: 70px;
+  height: 100%;
   width: 100%;
-  margin: 2px;
-  text-align: center;
+  margin: 20px;
+  justify-content: center;
+  font-family: "Oswald", sans-serif;
+  font-size: medium;
+  color: #fff;
+  letter-spacing: 0.2em;
+}
+.navbar__menu li:hover {
+  transform: scale(1.3);
+  background-image: linear-gradient(
+    to right,
+    #ffecd2 0%,
+    #fcb69f 51%,
+    #ffecd2 100%
+  );
+  color: rgb(47, 41, 41);
 }
 
 h1 {
@@ -34,13 +54,11 @@ h1 {
 }
 #containerInfo {
   position: relative;
-  width: 60%;
-  top: 8rem;
-  left: 5%;
-}
-#tommy {
-  position: absolute;
-  left: 0;
+  width: 72%;
+  top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  left: 9%;
 }
 
 #intro {
@@ -100,7 +118,7 @@ main {
 
 section {
   position: relative;
-  width: 90%;
+  width: 82%;
   min-height: 90vh;
   background-image: url("../images/rocket.jpg");
   background-clip: content-box;
@@ -114,20 +132,89 @@ section {
   width: 100%;
 }
 
-.split {
+.skills {
   position: absolute;
-  margin: 3%;
-  display: flex;
-  width: 90%;
-  height: 70%;
+  top: 38%;
+  left: 40%;
+  width: 155px;
+  height: 155px;
+  margin: auto;
+  background-image: url("../images/mountain.jpg");
 }
 
-#skills {
-  padding: 1rem;
-  background-image: url("../images/mountain.jpg");
-  width: 43%;
-  overflow-y: auto;
+.slider {
+  top: 14px;
+  height: 130px;
+  margin: auto;
+  position: relative;
+  width: 90%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 }
+
+.slide-track {
+  display: flex;
+  width: calc(90px * 17);
+  animation: scroll 30s linear infinite;
+}
+.slide-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-90px * 17));
+  }
+}
+
+.slide {
+  height: 123px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  perspective: 100px;
+}
+
+.iconify {
+  width: 100%;
+  transition: transform 1s;
+}
+
+.iconify:hover {
+  transform: translateZ(10px);
+}
+
+.iconify {
+  font-size: 58px;
+}
+.slider::before,
+.slider::after {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 25%,
+    rgba(255, 255, 255, 0) 46%
+  );
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 15%;
+  z-index: 2;
+}
+.slider::before {
+  left: 0;
+  top: 0;
+}
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
 #talent,
 #edu {
   color: #000;
@@ -157,10 +244,6 @@ section {
   100% {
     right: 5%;
   }
-}
-.iconify {
-  margin: 20px;
-  font-size: 40px;
 }
 
 #employers {
