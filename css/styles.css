@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: #dfdfe5;
+  background-color: #202020;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
@@ -142,22 +142,21 @@ section {
   width: 50%;
   float: left;
   height: 100%;
-  background: transparent;
   position: absolute;
 }
 .skills {
   position: absolute;
   top: 40%;
   left: 16%;
-  width: 155px;
-  height: 155px;
+  width: 200px;
+  height: 200px;
   margin: auto;
   background-image: url("../images/mountain.jpg");
 }
 
 .slider {
   top: 14px;
-  height: 130px;
+  height: 173px;
   margin: auto;
   position: relative;
   width: 90%;
@@ -203,7 +202,7 @@ section {
 }
 
 .iconify {
-  font-size: 58px;
+  font-size: 70px;
 }
 .slider::before,
 .slider::after {
@@ -228,31 +227,27 @@ section {
   transform: rotateZ(180deg);
 }
 
-.employers {
+.education {
   position: relative;
   right: 34px;
-  top: 170px;
+  top: 120px;
   width: 49%;
   float: right;
-  height: 60%;
-  background: url(../images/UC.jpeg);
+  height: 80%;
+  background: url(../images/uc.jpeg);
   background-size: cover;
 }
-.employers::before {
+.education::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 40%;
+  width: 100%;
   height: 100%;
   background: url("../images/paint.jpeg");
-  background-size: 800px;
+  background-size: 880px;
   background-position: center;
   mix-blend-mode: screen;
-}
-
-.your-active-class {
-  border-radius: 15px;
 }
 
 #employerHeader {
@@ -327,7 +322,7 @@ input[type="checkbox"]:checked ~ ul {
   background: #ffd47e;
   width: 180px;
   height: 180px;
-  border-radius: 1rem;
+  border-radius: 2rem;
   padding: 1rem;
   box-shadow: 4px 4px 12px 12px rgba(black, 0.75);
 }
@@ -341,8 +336,8 @@ input[type="checkbox"]:checked ~ ul {
 }
 .card:hover {
   transition: 0.2s;
-  transform: translateY(-1rem);
+  transform: translateY(-2rem);
 }
 .card:hover ~ .card {
-  transform: translateX(3rem);
+  transform: translateX(1rem);
 }

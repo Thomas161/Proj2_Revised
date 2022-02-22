@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", function (evt) {
       for (let i = 0; i < sections.length; i++) {
         let top = sections[i].getBoundingClientRect().top;
         let bottom = sections[i].getBoundingClientRect().bottom;
-        if (top <= 150 && bottom >= 150) {
+        if (top <= 180 && bottom >= 150) {
           sections[i].classList.add("your-active-class");
         } else {
           sections[i].classList.remove("your-active-class");
