@@ -121,7 +121,7 @@ section {
   position: relative;
   width: 82%;
   min-height: 90vh;
-  background-image: url("../images/rocket.jpg");
+  background: #202020;
   background-clip: content-box;
   background-size: cover;
 }
@@ -132,6 +132,12 @@ section {
   top: 0;
   width: 100%;
 }
+.skills_education {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .skills-wrapper {
   width: 50%;
   float: left;
@@ -142,7 +148,7 @@ section {
 .skills {
   position: absolute;
   top: 40%;
-  left: 30%;
+  left: 16%;
   width: 155px;
   height: 155px;
   margin: auto;
@@ -224,32 +230,25 @@ section {
 
 .employers {
   position: relative;
-  width: 50%;
+  right: 34px;
+  top: 170px;
+  width: 49%;
   float: right;
-  height: 100%;
+  height: 60%;
+  background: url(../images/UC.jpeg);
+  background-size: cover;
 }
-.employers img {
-  min-height: 88vh;
-  width: 100%;
+.employers::before {
+  content: "";
   position: absolute;
-  z-index: 1;
   top: 0;
   left: 0;
-}
-
-#talent,
-#edu {
-  color: #000;
-  text-align: center;
-}
-
-#eduList {
-  /* position: absolute; */
-  background-color: teal;
-  padding: 36px;
-  margin: auto;
-  text-align: center;
-  border: 4px solid #fff;
+  width: 40%;
+  height: 100%;
+  background: url("../images/paint.jpeg");
+  background-size: 800px;
+  background-position: center;
+  mix-blend-mode: screen;
 }
 
 .your-active-class {
