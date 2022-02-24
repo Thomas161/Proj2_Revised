@@ -120,10 +120,23 @@ main {
 section {
   position: relative;
   width: 82%;
-  min-height: 90vh;
+  min-height: 91vh;
   background: #202020;
   background-clip: content-box;
   background-size: cover;
+}
+section:before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+  filter: blur(10px);
+  margin: -20px;
 }
 
 .page__header {
@@ -132,6 +145,8 @@ section {
   top: 0;
   width: 100%;
 }
+/* Skills and Education */
+
 .skills_education {
   position: absolute;
   width: 100%;
@@ -250,6 +265,8 @@ section {
   mix-blend-mode: screen;
 }
 
+/* Employers */
+
 #employerHeader {
   position: relative;
   text-align: center;
@@ -312,32 +329,97 @@ input[type="checkbox"]:checked ~ ul {
   transform: scaleY(1);
 }
 
-.cards {
+/* Hobbies */
+
+section .set {
   position: absolute;
-  top: 40%;
-  left: 15%;
-  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
-.card {
-  background: #ffd47e;
-  width: 180px;
-  height: 180px;
-  border-radius: 2rem;
-  padding: 1rem;
-  box-shadow: 4px 4px 12px 12px rgba(black, 0.75);
-}
-.card img {
+
+section .set div {
   position: absolute;
-  width: 130px;
-  height: 80px;
+  display: block;
 }
-.card:not(:first-child) {
-  margin-left: -2rem;
+section .set div img {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
 }
-.card:hover {
-  transition: 0.2s;
-  transform: translateY(-2rem);
+
+section .set div:nth-child(1) {
+  left: 10%;
+  animation: animate 15s linear infinite;
+  animation-delay: -2s;
 }
-.card:hover ~ .card {
-  transform: translateX(1rem);
+section .set div:nth-child(2) {
+  left: 20%;
+  animation: animate 20s linear infinite;
+  animation-delay: -5s;
+}
+section .set div:nth-child(3) {
+  left: 30%;
+  animation: animate 20s linear infinite;
+  animation-delay: 0s;
+}
+section .set div:nth-child(4) {
+  left: 40%;
+  animation: animate 15s linear infinite;
+  animation-delay: -5s;
+}
+section .set div:nth-child(5) {
+  left: 50%;
+  animation: animate 18s linear infinite;
+  animation-delay: -10s;
+}
+section .set div:nth-child(6) {
+  left: 90%;
+  animation: animate 12s linear infinite;
+  animation-delay: -20s;
+}
+section .set div:nth-child(7) {
+  left: 80%;
+  animation: animate 8s linear infinite;
+  animation-delay: -2s;
+}
+section .set div:nth-child(8) {
+  left: 70%;
+  animation: animate 11s linear infinite;
+  animation-delay: -13s;
+}
+section .set div:nth-child(9) {
+  left: 60%;
+  animation: animate 18s linear infinite;
+  animation-delay: -16s;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    top: -50%;
+    transform: translateX(20px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-20px) rotate(45deg);
+  }
+  40% {
+    transform: translateX(-20px) rotate(90deg);
+  }
+  60% {
+    transform: translateX(20px) rotate(180deg);
+  }
+  80% {
+    transform: translateX(-20px) rotate(180deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(-20px) rotate(225deg);
+  }
 }

@@ -2,7 +2,6 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   const navbarList = document.querySelector("#navbar__list");
   const sections = document.querySelectorAll("section");
   const intro = document.querySelector("#intro");
-  const skills = document.querySelector("#skills");
 
   const t1 = gsap.timeline({ repeat: -1 });
   const t2 = gsap.timeline();
@@ -13,12 +12,6 @@ window.addEventListener("DOMContentLoaded", function (evt) {
   };
 
   playAnimation();
-
-  const skillsAnimation = () => {
-    t2.fromTo(skills, 1.5, { scaleY: 0 }, { scaleY: 1 });
-  };
-
-  skillsAnimation();
 
   const createNavLinks = () => {
     [...sections].forEach((sec) => {
@@ -41,7 +34,7 @@ window.addEventListener("DOMContentLoaded", function (evt) {
       for (let i = 0; i < sections.length; i++) {
         let top = sections[i].getBoundingClientRect().top;
         let bottom = sections[i].getBoundingClientRect().bottom;
-        if (top <= 180 && bottom >= 150) {
+        if (top <= 150 && bottom >= 150) {
           sections[i].classList.add("your-active-class");
         } else {
           sections[i].classList.remove("your-active-class");
