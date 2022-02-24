@@ -249,7 +249,7 @@ section:before {
   width: 49%;
   float: right;
   height: 80%;
-  background: url(../images/uc.jpeg);
+  background: url(../images/university.jpeg);
   background-size: cover;
 }
 .education::before {
